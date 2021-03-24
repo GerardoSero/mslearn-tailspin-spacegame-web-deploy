@@ -10,9 +10,9 @@ using System.Collections;
 namespace UITests
 {
     [TestFixture("Chrome")]
-    [TestFixture("Firefox")]
-    [TestFixture("Edge")]
-    public class HomePageTest
+	[TestFixture("Firefox")]
+	[TestFixture("Edge")]
+	public class HomePageTest
     {
         private string browser;
         private IWebDriver driver;
@@ -32,12 +32,20 @@ namespace UITests
                 {
                   case "Chrome":
                     driver = new ChromeDriver(
-                        Environment.GetEnvironmentVariable("ChromeWebDriver")
+                        Environment.GetEnvironmentVariable("ChromeWebDriver"),
+                        new ChromeOptions
+						{
+                            AcceptInsecureCertificates = true,
+						}
                     );
                     break;
                   case "Firefox":
                     driver = new FirefoxDriver(
-                        Environment.GetEnvironmentVariable("GeckoWebDriver")
+                        Environment.GetEnvironmentVariable("GeckoWebDriver"),
+                        new FirefoxOptions
+						{
+                            AcceptInsecureCertificates = true,
+						}
                     );
                     break;
                   case "Edge":
@@ -45,7 +53,8 @@ namespace UITests
                         Environment.GetEnvironmentVariable("EdgeWebDriver"),
                         new EdgeOptions
                         {
-                            UseChromium = true
+                            UseChromium = true,
+                            AcceptInsecureCertificates = true,
                         }
                     );
                     break;

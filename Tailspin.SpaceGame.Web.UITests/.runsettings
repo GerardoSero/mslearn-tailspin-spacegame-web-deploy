@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <!-- Configurations that affect the Test Framework -->
+  <RunConfiguration>
+  </RunConfiguration>
+
+  <!-- Configurations for data collectors -->
+  <DataCollectionRunSettings>
+  </DataCollectionRunSettings>
+
+  <!-- Adapter Specific sections -->
+
+  <NUnit>
+    <Verbosity>5</Verbosity>
+    <DisplayName>FullName</DisplayName>
+    <FullNameSeparator>_</FullNameSeparator>
+  </NUnit>
+
+
+</RunSettings>

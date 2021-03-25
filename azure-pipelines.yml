@@ -133,9 +133,13 @@ stages:
       displayName: 'Run unit tests - $(buildConfiguration)'
       inputs:
         command: 'test'
-        arguments: '--no-build --configuration $(buildConfiguration)'
-        publishTestResults: true
+        arguments: '--no-build --configuration $(buildConfiguration) --logger nunit'
+        publishTestResults: false
         projects: '$(System.DefaultWorkingDirectory)/**/*UITests.csproj'
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFormat: 'NUnit'
+        testResultsFiles: '**/TestResults.xml'
 
 - stage: 'Staging'
   displayName: 'Deploy to the staging environment'

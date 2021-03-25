@@ -40,8 +40,10 @@ namespace UITests
                     );
                     break;
                   case "Firefox":
+                    FirefoxDriverService geckoService = FirefoxDriverService.CreateDefaultService(Environment.GetEnvironmentVariable("GeckoWebDriver"));
+                    geckoService.Host = "::1";
                     driver = new FirefoxDriver(
-                        Environment.GetEnvironmentVariable("GeckoWebDriver"),
+                        geckoService,
                         new FirefoxOptions
 						{
                             AcceptInsecureCertificates = true,
